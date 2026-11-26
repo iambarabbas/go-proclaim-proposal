@@ -79,8 +79,8 @@
   /* Lists */
   .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
   .two{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
-  .box.need ul{columns:2;column-gap:32px}
-  .box.need li{break-inside:avoid}
+  .box.need ul,.box.yes ul{columns:2;column-gap:32px}
+  .box.need li,.box.yes li{break-inside:avoid}
   .box{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
   .box ul{list-style:none;padding:0;margin:0}
   .box li{padding:8px 0 8px 28px;position:relative;font-size:16px;border-bottom:1px dashed var(--line)}
@@ -108,7 +108,7 @@
   @media (max-width:760px){
     body{font-size:17px}
     .cards,.phases,.three,.two,.sign{grid-template-columns:1fr}
-    .box.need ul{columns:1}
+    .box.need ul,.box.yes ul{columns:1}
     .timeline{grid-template-columns:1fr;gap:44px}
     h2{font-size:36px}
     th,td{padding:12px}
@@ -248,19 +248,13 @@
   <div class="wrap">
     <div class="eyebrow">The details</div>
     <h2>What's included</h2>
-    <div class="two">
-      <div class="box yes"><h3>Included</h3><ul>
+    <div style="margin-top:28px">
+      <div class="box yes"><ul>
         <li>A weekly check-in meeting during each phase, or more often as requested</li>
         <li>Two rounds of revisions per phase</li>
         <li>Every account set up in GO PROCLAIM's name, with a handoff of all logins</li>
         <li>A short video walkthrough of the admin screens</li>
         <li>30 days of bug fixes after each phase launches</li>
-      </ul></div>
-      <div class="box no"><h3>Potential Add-Ons</h3><ul>
-        <li>Writing copy, taking photos or designing new graphics</li>
-        <li>Logo or brand redesign</li>
-        <li>New features beyond this scope, such as courses, video hosting, events or a mobile app</li>
-        <li>Running ads or SEO campaigns</li>
       </ul></div>
     </div>
   </div>
