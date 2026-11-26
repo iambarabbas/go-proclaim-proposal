@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GO PROCLAIM — Website &amp; Membership Portal Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F2A44; --navy-2:#2B3A5C; --orange:#E8732A; --peach:#F7B486;
+    --sand:#FBF6EF; --ink:#1F2A44; --muted:#5B6578; --line:#E6DED2; --white:#fff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Source Sans 3',system-ui,sans-serif;color:var(--ink);background:var(--sand);font-size:18px;line-height:1.6}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,.display{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:1.5px;line-height:1.05;margin:0}
+  h2{font-size:44px;margin-bottom:8px}
+  h3{font-size:28px;margin-bottom:12px}
+  .eyebrow{font-family:'Bebas Neue',sans-serif;letter-spacing:4px;color:var(--orange);font-size:20px;margin-bottom:6px}
+  .lead{font-size:20px;color:var(--muted);max-width:720px;margin:8px 0 0}
+
+  /* Hero */
+  header{background:var(--navy);color:var(--white);padding:72px 0 88px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border:3px dashed rgba(247,180,134,.35);border-radius:50%}
+  header .stamp{display:inline-block;border:2px solid var(--peach);color:var(--peach);padding:6px 14px;font-family:'Bebas Neue';letter-spacing:3px;font-size:18px;transform:rotate(-3deg);margin-bottom:28px}
+  header h1{font-size:clamp(48px,9vw,92px)}
+  header h1 span{color:var(--orange)}
+  header p{color:#D5E0EF;font-size:21px;max-width:640px;margin:18px 0 0}
+  .meta{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:36px;font-size:15px;color:#B9C6DA;text-transform:uppercase;letter-spacing:1.5px}
+  .meta b{color:var(--white);font-weight:600}
+
+  /* Price strip */
+  .strip{margin-top:-48px;position:relative;z-index:2}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 8px 24px rgba(31,42,68,.08)}
+  .card .k{font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+  .card .v{font-family:'Bebas Neue';font-size:52px;letter-spacing:1px;line-height:1;margin-top:6px}
+  .card.hl{background:var(--orange);border-color:var(--orange);color:var(--white)}
+  .card.hl .k{color:#FFE6D5}
+
+  section{padding:72px 0 0}
+  section:last-of-type{padding-bottom:72px}
+
+  /* Phases */
+  .phases{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+  .phase{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .phase .tag{position:absolute;top:-14px;left:24px;background:var(--navy);color:var(--white);font-family:'Bebas Neue';letter-spacing:2px;padding:4px 12px;border-radius:6px;font-size:18px}
+  .phase .price{font-family:'Bebas Neue';font-size:40px;color:var(--orange);letter-spacing:1px}
+  .phase ul{padding-left:20px;margin:12px 0 0}
+  .phase li{margin:8px 0}
+  .phase li b{display:block}
+  .phase li span{color:var(--muted);font-size:16px}
+
+  /* Table */
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-top:24px;font-size:17px}
+  th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+  th{background:var(--navy);color:var(--white);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:1.2px}
+  tr:last-child td{border-bottom:none}
+  tr.total td{background:#FFF1E7;font-weight:700}
+  td.num,th.num{text-align:right;white-space:nowrap}
+  .notes{margin:18px 0 0;padding-left:20px;color:var(--muted)}
+  .notes li{margin:6px 0}
+
+  /* Timeline */
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;position:relative}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;position:relative}
+  .step.launch{background:var(--navy);color:var(--white);border-color:var(--navy)}
+  .step .when{font-family:'Bebas Neue';font-size:26px;letter-spacing:1px}
+  .step.launch .when{color:var(--peach)}
+  .step p{margin:6px 0 0;font-size:16px}
+  .gate{position:absolute;top:-36px;left:0;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+  .gate::before{content:"";display:inline-block;width:10px;height:10px;background:var(--orange);transform:rotate(45deg);margin-right:8px;vertical-align:1px}
+  .fine{font-size:15px;color:var(--muted);margin-top:16px}
+
+  /* Lists */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+  .box{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .box ul{list-style:none;padding:0;margin:0}
+  .box li{padding:8px 0 8px 28px;position:relative;font-size:16px;border-bottom:1px dashed var(--line)}
+  .box li:last-child{border-bottom:none}
+  .box.yes li::before{content:"✓";position:absolute;left:0;color:#2E8B57;font-weight:700}
+  .box.no li::before{content:"–";position:absolute;left:4px;color:var(--muted);font-weight:700}
+  .box.need li::before{content:"→";position:absolute;left:0;color:var(--orange);font-weight:700}
+
+  .support{display:flex;flex-wrap:wrap;gap:24px;align-items:center;background:var(--navy);color:var(--white);border-radius:14px;padding:28px;margin-top:24px}
+  .support .display{font-size:48px;color:var(--peach)}
+  .support p{margin:0;flex:1 1 360px;color:#D5E0EF}
+
+  /* Next steps */
+  ol.next{counter-reset:n;list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+  ol.next li{counter-increment:n;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px 20px 18px 72px;position:relative}
+  ol.next li::before{content:counter(n);position:absolute;left:20px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:var(--orange);color:var(--white);font-family:'Bebas Neue';font-size:22px;display:grid;place-items:center}
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+  .sign div{border-top:2px solid var(--navy);padding-top:8px;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+
+  footer{background:var(--navy);color:#B9C6DA;padding:28px 0;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  footer .tag{font-family:'Bebas Neue';letter-spacing:4px;font-size:20px;color:var(--white)}
+  footer .tag em{font-style:normal;color:var(--peach)}
+
+  @media (max-width:760px){
+    body{font-size:17px}
+    .cards,.phases,.three,.sign{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr;gap:44px}
+    h2{font-size:36px}
+    th,td{padding:12px}
+    .hide-sm{display:none}
+  }
+  @media print{
+    header::after{display:none}
+    .card,.phase,.box,.step,table{box-shadow:none}
+    section{padding-top:36px;break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="stamp">Project Proposal</div>
+    <h1>GO PROCLAIM<br><span>Website &amp; Membership Portal</span></h1>
+    <p>A live public website, a paid membership with its own member portal, and a private community where members share messages and photos.</p>
+    <div class="meta">
+      <div>Prepared for <b>Tony Assaf, GO PROCLAIM</b></div>
+      <div>Prepared by <b>Brett Schoeneck</b></div>
+      <div>Date <b>November 25, 2026</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap strip">
+  <div class="cards">
+    <div class="card hl"><div class="k">Total investment</div><div class="v">$6,000</div></div>
+    <div class="card"><div class="k">Phases</div><div class="v">2 × $3,000</div></div>
+    <div class="card"><div class="k">Phase 1 live in</div><div class="v">~4 weeks</div></div>
+  </div>
+</div>
+
+<main>
+<section id="overview">
+  <div class="wrap">
+    <div class="eyebrow">Overview</div>
+    <h2>Everything GO PROCLAIM needs to launch</h2>
+    <p class="lead">The work is split into two phases, so the site and paid membership can launch and start bringing in revenue before the community is built.</p>
+    <p>The site starts from the homepage design Tony shared. It covers the experiences, how it works, the destinations, the sample curriculum, the free India sample and testimonials. Paying members log in to a portal of GO PROCLAIM products, each linking to Amazon, and join a community for churches, schools and co-ops running the curriculum.</p>
+    <p>Everything runs on established services: <b>Cloudflare</b> for hosting, <b>Supabase</b> for logins and data, and <b>Stripe</b> for payments. GO PROCLAIM owns every account, so there's no lock-in to me as the developer.</p>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="eyebrow">Scope</div>
+    <h2>What gets built</h2>
+    <div class="phases">
+      <div class="phase">
+        <div class="tag">Phase 1</div>
+        <h3>Website, membership &amp; portal</h3>
+        <div class="price">$3,000</div>
+        <ul>
+          <li><b>Production website</b><span>The homepage design rebuilt as a fast, mobile-friendly site on GO PROCLAIM's domain. Sample and newsletter forms connected. Remaining placeholders filled with content GO PROCLAIM provides.</span></li>
+          <li><b>Member accounts</b><span>Sign up, log in, password reset and a simple account page.</span></li>
+          <li><b>Paid membership</b><span>Pricing page with secure Stripe checkout. Access unlocks automatically when someone pays and locks when they cancel. Members update their card or cancel on their own.</span></li>
+          <li><b>Member portal</b><span>Members-only product cards with "View on Amazon" buttons, plus an admin screen to manage products without code.</span></li>
+          <li><b>Launch</b><span>Domain and SSL, email sending, privacy policy and terms pages, analytics, and testing on every device.</span></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="tag">Phase 2</div>
+        <h3>Community</h3>
+        <div class="price">$3,000</div>
+        <ul>
+          <li><b>Members-only feed</b><span>Members post messages and photos.</span></li>
+          <li><b>Comments &amp; reactions</b><span>With new posts appearing live.</span></li>
+          <li><b>Moderation</b><span>A report button on every post, plus an admin screen to hide or remove posts and suspend members.</span></li>
+          <li><b>Protection</b><span>Photo size limits and basic spam protection.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investment">
+  <div class="wrap">
+    <div class="eyebrow">Investment</div>
+    <h2>$6,000, split evenly</h2>
+    <table>
+      <thead><tr><th>Phase</th><th class="hide-sm">What it covers</th><th class="num">Price</th><th class="num">Deposit</th><th class="num">At launch</th></tr></thead>
+      <tbody>
+        <tr><td>Phase 1</td><td class="hide-sm">Website, accounts, paid membership, member portal, launch</td><td class="num">$3,000</td><td class="num">$1,500</td><td class="num">$1,500</td></tr>
+        <tr><td>Phase 2</td><td class="hide-sm">Community feed, photos, comments, moderation</td><td class="num">$3,000</td><td class="num">$1,500</td><td class="num">$1,500</td></tr>
+        <tr class="total"><td>Total</td><td class="hide-sm"></td><td class="num">$6,000</td><td class="num">$3,000</td><td class="num">$3,000</td></tr>
+      </tbody>
+    </table>
+    <ul class="notes">
+      <li>Each phase is billed separately, with 50% up front and 50% when that phase goes live.</li>
+      <li>Phase 2 is optional and can start any time after Phase 1 launches.</li>
+      <li>Work outside this scope is quoted separately and agreed in writing before it starts.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow">Timeline</div>
+    <h2>Live in about four weeks</h2>
+    <p class="lead">Phase 1 takes about 4 weeks from kickoff, and Phase 2 adds about 3 more.</p>
+    <div class="timeline">
+      <div class="step"><div class="gate">Deposit + content in</div><div class="when">Weeks 1–2</div><p>Production website<br>Accounts + payments</p></div>
+      <div class="step"><div class="when">Week 3</div><p>Member portal + admin<br>Testing on all devices</p></div>
+      <div class="step launch"><div class="gate">Tony signs off</div><div class="when">Week 4</div><p>Phase 1 launch<br>Membership goes live</p></div>
+      <div class="step"><div class="gate">Phase 2 deposit</div><div class="when">Weeks 5–7</div><p>Phase 2: Community<br>Build, test, launch</p></div>
+    </div>
+    <p class="fine">Weeks count from kickoff. Late content or feedback moves the dates by the same amount.</p>
+  </div>
+</section>
+
+<section id="costs">
+  <div class="wrap">
+    <div class="eyebrow">After launch</div>
+    <h2>Running costs &amp; support</h2>
+    <p class="lead">The site costs about <b>$25–30/month</b> to run, plus Stripe fees on each sale. GO PROCLAIM pays these directly on its own accounts.</p>
+    <table>
+      <thead><tr><th>Service</th><th>What it does</th><th class="num">Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Cloudflare</td><td>Hosting and domain security</td><td class="num">$0/month</td></tr>
+        <tr><td>Supabase Pro</td><td>Member logins, database, photo storage</td><td class="num">$25/month</td></tr>
+        <tr><td>Stripe</td><td>Membership payments</td><td class="num">2.9% + 30¢ per charge*</td></tr>
+        <tr><td>Domain name</td><td>GO PROCLAIM's web address</td><td class="num">~$10–15/year</td></tr>
+      </tbody>
+    </table>
+    <p class="fine">*Plus a small subscription billing fee from Stripe.</p>
+    <div class="support">
+      <div class="display">$150/mo</div>
+      <p><b style="color:#fff">Optional support plan.</b> Up to 2 hours a month of updates and fixes, keeping services up to date, and help with community moderation tools. Unused hours don't roll over. Without the plan, support requests are quoted as needed.</p>
+    </div>
+  </div>
+</section>
+
+<section id="included">
+  <div class="wrap">
+    <div class="eyebrow">The details</div>
+    <h2>What's included</h2>
+    <div class="three">
+      <div class="box yes"><h3>Included</h3><ul>
+        <li>A weekly check-in meeting during each phase, or more often as requested</li>
+        <li>Two rounds of revisions per phase</li>
+        <li>Every account set up in GO PROCLAIM's name, with a handoff of all logins</li>
+        <li>A short video walkthrough of the admin screens</li>
+        <li>30 days of bug fixes after each phase launches</li>
+      </ul></div>
+      <div class="box no"><h3>Not included</h3><ul>
+        <li>Writing copy, taking photos or designing new graphics</li>
+        <li>Logo or brand redesign</li>
+        <li>New features beyond this scope, such as courses, video hosting, events or a mobile app</li>
+        <li>Running ads or SEO campaigns</li>
+      </ul></div>
+      <div class="box need"><h3>Needed from you</h3><ul>
+        <li>Membership price and plans (monthly, yearly, any free trial)</li>
+        <li>Product list: names, images, descriptions and Amazon links</li>
+        <li>Testimonials, photos and the contact email</li>
+        <li>Who owns the Stripe account and domain, and who moderates the community</li>
+        <li>Confirmation the community is for adults only (leaders, pastors, parents)</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="eyebrow">Next steps</div>
+    <h2>Ready to board?</h2>
+    <ol class="next">
+      <li>Review this proposal and send any questions or changes.</li>
+      <li>Reply with approval and the Phase 1 deposit of <b>$1,500</b>.</li>
+      <li>Send the items listed under "Needed from you."</li>
+      <li>We set up the accounts together, and Phase 1 begins.</li>
+    </ol>
+    <div class="sign">
+      <div>Approved by (GO PROCLAIM) &nbsp;·&nbsp; Date</div>
+      <div>Developer &nbsp;·&nbsp; Date</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Proposal for GO PROCLAIM · November 2026</span>
+    <span class="tag">Know Him | Love Him | <em>Proclaim Him</em></span>
+  </div>
+</footer>
+
+</body>
+</html>
